@@ -36,10 +36,10 @@ public class MedicoControlador {
         persona.setPersona_id(personaOptional.get().getPersona_id());
         especialidad.setEspecialidad_id(especialidadOptional.get().getEspecialidad_id());
         if (!personaOptional.isPresent()) {
-            throw new Exception("La persona no existe");
+            throw new Exception("No existe la persona");
         }
         if (!especialidadOptional.isPresent()) {
-            throw new Exception("La especialidad no existe");
+            throw new Exception("No existe la especialidad");
         }
         medico.setPersona(persona);
         medico.setEspecialidad(especialidad);

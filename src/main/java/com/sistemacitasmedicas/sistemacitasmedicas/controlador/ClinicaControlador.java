@@ -34,10 +34,10 @@ public class ClinicaControlador {
         persona.setPersona_id(personaOptional.get().getPersona_id());
         medico.setMedico_id(medicoOptional.get().getMedico_id());
         if (!personaOptional.isPresent()) {
-            throw new Exception("La persona no existe");
+            throw new Exception("No existe la persona");
         }
         if (!medicoOptional.isPresent()) {
-            throw new Exception("El medico no existe");
+            throw new Exception("No existe el medico");
         }
         clinica.setPersona(persona);
         clinica.setMedico(medico);

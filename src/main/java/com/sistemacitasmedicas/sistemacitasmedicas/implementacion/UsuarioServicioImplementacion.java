@@ -34,10 +34,10 @@ public class UsuarioServicioImplementacion implements UsuarioServicio {
     public Usuario actualizarUsuario(Usuario usuario) throws Exception {
         Optional<Usuario> usuarioExistente = usuarioRepositorio.findByUsername(usuario.getUsername());
         if (!usuarioExistente.isPresent()) {
-            throw new Exception("Usuario no encontrado");
+            throw new Exception("Usuario no encontrado.");
         }
         Persona persona = personaRepositorio.findById(usuario.getPersona().getPersona_id())
-                .orElseThrow(() -> new Exception("Persona no encontrada"));
+                .orElseThrow(() -> new Exception("Persona no encontrada."));
         Usuario usuarioActualizado = usuarioExistente.get();
         usuarioActualizado.setEncargo(usuario.getEncargo());
         usuarioActualizado.setUsername(usuario.getUsername());

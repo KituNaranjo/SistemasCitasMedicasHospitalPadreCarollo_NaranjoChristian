@@ -20,7 +20,7 @@ public class ServicioControlador {
     public Servicio editarServicio(@PathVariable Integer id, @RequestBody Servicio servicio) throws Exception{
         Servicio serv = servicioService.obtenerServicioPorServicioId(id);
         if (serv == null){
-            throw new Exception("El servicio no existe");
+            throw new Exception("No existe el servicio");
         }
         serv.setNombreServicio(servicio.getNombreServicio());
         serv.setPrecio(servicio.getPrecio());

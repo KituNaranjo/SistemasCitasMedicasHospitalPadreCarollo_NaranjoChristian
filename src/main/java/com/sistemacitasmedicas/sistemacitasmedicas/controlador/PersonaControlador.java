@@ -46,7 +46,7 @@ public class PersonaControlador {
             personaExistente.setTipo(personaActualizada.getTipo());
             return personaServicio.crearPersona(personaExistente);
         } else {
-            throw new PersonaNoEncontradaException("No se encontró la persona a actualizar.");
+            throw new PersonaNoEncontradaException("Persona a actualizar no encontrado.");
         }
     }
     public class PersonaNoEncontradaException extends RuntimeException {

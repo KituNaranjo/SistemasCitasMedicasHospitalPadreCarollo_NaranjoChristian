@@ -34,12 +34,12 @@ public class CitaControlador {
         if (personaOptional.isPresent()) {
             persona.setPersona_id(personaOptional.get().getPersona_id());
         } else {
-            throw new Exception("La persona no existe");
+            throw new Exception("No existe la persona");
         }
         if (medicoOptional.isPresent()) {
             medico.setMedico_id(medicoOptional.get().getMedico_id());
         } else {
-            throw new Exception("El medico no existe");
+            throw new Exception("No existe el medico");
         }
         cita.setPersona(persona);
         cita.setMedico(medico);

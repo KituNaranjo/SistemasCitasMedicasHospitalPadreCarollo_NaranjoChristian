@@ -36,11 +36,11 @@ public class FacturaControlador {
             Optional<Servicio> servicioOptional = servicioService.get(servicio_id);
             if (personaOptional == null) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                        .body("La persona con el ID " + persona_id + " no existe.");
+                        .body("Esta persona " + persona_id + " no existe.");
             }
             if (!servicioOptional.isPresent()) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                        .body("El servicio con el ID " + servicio_id + " no existe.");
+                        .body("El servicio " + servicio_id + " no existe.");
             }
             CabeceraFactura cabeceraFactura = new CabeceraFactura();
             cabeceraFactura.setFecha(new Date());
@@ -61,7 +61,7 @@ public class FacturaControlador {
             cabeceraFactura.setTotalFactura(totalFactura);
             Servicio servicio = servicioOptional.get();
             if (servicio.getCantidad() == 0){
-                throw new Exception("No esta ese servicio disponible");
+                throw new Exception("Servicio no disponible");
             }
             int cantidadServicio = servicioOptional.get().getCantidad() - cantidad;
             servicio.setCantidad(cantidadServicio);
@@ -96,10 +96,10 @@ public class FacturaControlador {
             content.append("Total factura: " + totalFactura);
             content.append("\n");
             emailSenderServicio.sendEmail(toUser, subject, content);
-            return ResponseEntity.ok("La factura se ha creado correctamente.");
+            return ResponseEntity.ok("Factura creada correctamente.");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Ocurrió un error al crear la factura: " + e.getMessage());
+                    .body("Error: " + e.getMessage());
         }
     }
     @GetMapping("/obtenerFacturas")

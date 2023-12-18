@@ -19,7 +19,7 @@ public class PersonaServicioImplementacion implements PersonaServicio {
     public Persona crearPersona(Persona persona) {
         Persona personaExistente = personaRepositorio.findByCedula(persona.getCedula());
         if (personaExistente != null && personaExistente.equals(persona.getCedula())) {
-            throw new PersonaExistenteException("Ya existe una persona con la misma cédula.");
+            throw new PersonaExistenteException("Existe una persona con la misma cédula.");
         }
         persona.asignarRolesPorTipo();
         return personaRepositorio.save(persona);
@@ -39,7 +39,7 @@ public class PersonaServicioImplementacion implements PersonaServicio {
     public Persona actualizarPersona(Persona persona) {
         Optional<Persona> personaExistente = personaRepositorio.findById(persona.getPersona_id());
         if (!personaExistente.isPresent()) {
-            throw new PersonaNoEncontradaException("No se encontró la persona a actualizar.");
+            throw new PersonaNoEncontradaException("Persona a actualizar no encontrado.");
         }
         Persona personaActualizada = personaExistente.get();
         personaActualizada.setCedula(persona.getCedula());
