@@ -3,11 +3,11 @@ package com.sistemacitasmedicas.sistemacitasmedicas.modelo;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "clinica")
-public class Clinica {
+@Table(name = "hospital")
+public class Hospital {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer clinica_id;
+    private Integer hospital_id;
     private String prescripciones;
     private String ordenes;
     private String certificados;
@@ -15,19 +15,19 @@ public class Clinica {
     private Persona persona;
     @ManyToOne
     private Medico medico;
-    public Clinica(){
+    public Hospital(){
     }
-    public Clinica(Integer clinica_id, String prescripciones, String ordenes, String certificados) {
-        this.clinica_id = clinica_id;
+    public Hospital(Integer hospital_id, String prescripciones, String ordenes, String certificados) {
+        this.hospital_id = hospital_id;
         this.prescripciones = prescripciones;
         this.ordenes = ordenes;
         this.certificados = certificados;
     }
-    public Integer getClinica_id() {
-        return clinica_id;
+    public Integer getHospital_id() {
+        return hospital_id;
     }
-    public void setClinica_id(Integer clinica_id) {
-        this.clinica_id = clinica_id;
+    public void setHospital_id(Integer hospital_id) {
+        this.hospital_id = hospital_id;
     }
     public String getPrescripciones() {
         return prescripciones;

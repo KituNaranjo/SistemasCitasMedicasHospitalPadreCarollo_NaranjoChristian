@@ -18,6 +18,5 @@ public class EmailSenderServicioImplementacion implements EmailSenderServicio {
         mailMessage.setSubject(subject);
         mailMessage.setText(message.toString());
         javaMailSender.send(mailMessage);
-
     }
 }

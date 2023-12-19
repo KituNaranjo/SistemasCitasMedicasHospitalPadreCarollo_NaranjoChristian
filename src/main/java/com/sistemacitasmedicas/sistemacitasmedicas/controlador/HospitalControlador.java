@@ -1,7 +1,7 @@
 package com.sistemacitasmedicas.sistemacitasmedicas.controlador;
 
 import com.sistemacitasmedicas.sistemacitasmedicas.modelo.*;
-import com.sistemacitasmedicas.sistemacitasmedicas.servicios.ClinicaServicio;
+import com.sistemacitasmedicas.sistemacitasmedicas.servicios.HospitalServicio;
 import com.sistemacitasmedicas.sistemacitasmedicas.servicios.MedicoServicio;
 import com.sistemacitasmedicas.sistemacitasmedicas.servicios.PersonaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +13,20 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/clinica")
+@RequestMapping("/hospital")
 @CrossOrigin("*")
-public class ClinicaControlador {
+public class HospitalControlador {
     @Autowired
-    ClinicaServicio clinicaServicio;
+    HospitalServicio hospitalServicio;
     @Autowired
     MedicoServicio medicoServicio;
     @Autowired
     PersonaServicio personaServicio;
     @PostMapping("/crear/{medico_id}/{persona_id}")
-    public Clinica guardarClinica(@PathVariable("medico_id") Integer medico_id,
+    public Hospital guardarHospital(@PathVariable("medico_id") Integer medico_id,
                                   @PathVariable("persona_id") Integer persona_id,
-                                  @RequestBody Clinica clinica) throws Exception{
-        List<Clinica> clinicaPersona = new ArrayList<>();
+                                  @RequestBody Hospital hospital) throws Exception{
+        List<Hospital> hospitalPersona = new ArrayList<>();
         Persona persona = new Persona();
         Optional<Persona> personaOptional = personaServicio.get(persona_id);
         Medico medico = new Medico();
@@ -39,26 +39,28 @@ public class ClinicaControlador {
         if (!medicoOptional.isPresent()) {
             throw new Exception("No existe el medico");
         }
-        clinica.setPersona(persona);
-        clinica.setMedico(medico);
-        clinicaPersona.add(clinica);
-        return clinicaServicio.guardarprescripcion(clinica, clinicaPersona);
-
+        hospital.setPersona(persona);
+        hospital.setMedico(medico);
+        hospitalPersona.add(hospital);
+        return hospitalServicio.guardarprescripcion(hospital, hospitalPersona);
     }
-    @DeleteMapping("/eliminarClinica/{id}")
-    public void eliminarClinica(@PathVariable("id") Integer id){
-        clinicaServicio.delete(id);
+    @DeleteMapping("/eliminarHospital/{id}")
+    public void eliminarHospital(@PathVariable("id") Integer id){
+        hospitalServicio.delete(id);
     }
-    @GetMapping("/listarClinicas")
-    public List<Clinica> listarClinicas() { return clinicaServicio.listarClinica(); }
-    @GetMapping("/listar/{clinica_id}")
-    public Clinica listarClinicasId (@PathVariable("clinica_id") Integer clinica_id) {
-        return clinicaServicio.obtenerClinicaPorId( clinica_id );  }
-    @PutMapping("/actualizarClinica/{id}")
-    public ResponseEntity<Clinica> actualizarClinica(@PathVariable("id") Integer id, @RequestBody Clinica clinicaActualizada) {
-        Clinica clinica = clinicaServicio.actualizarClinica(id, clinicaActualizada);
-        if (clinica != null) {
-            return ResponseEntity.status(HttpStatus.OK).body(clinica);
+    @GetMapping("/listarHospitals")
+    public List<Hospital> listarHospitals() { 
+        return hospitalServicio.listarHospital(); 
+    }
+    @GetMapping("/listar/{hospital_id}")
+    public Hospital listarHospitalsId (@PathVariable("hospital_id") Integer hospital_id) {
+        return hospitalServicio.obtenerHospitalPorId(hospital_id);  
+    }
+    @PutMapping("/actualizarHospital/{id}")
+    public ResponseEntity<Hospital> actualizarHospital(@PathVariable("id") Integer id, @RequestBody Hospital hospitalActualizada) {
+        Hospital hospital = hospitalServicio.actualizarHospital(id, hospitalActualizada);
+        if (hospital != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(hospital);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
