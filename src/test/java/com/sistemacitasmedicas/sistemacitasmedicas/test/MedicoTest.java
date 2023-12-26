@@ -24,7 +24,7 @@ public class MedicoTest {
     }
 
     @Test
-    public void testGetterSetter() {
+    public void testMedico() {
         // Configuración
         Integer id = 1;
         String telefonoConsultorio = "123-456-7890";
