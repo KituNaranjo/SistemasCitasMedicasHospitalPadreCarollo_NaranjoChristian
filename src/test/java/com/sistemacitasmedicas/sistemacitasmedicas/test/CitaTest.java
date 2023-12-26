@@ -15,7 +15,6 @@ public class CitaTest {
 
     @Before
     public void setUp() {
-        // Configurar cualquier inicialización necesaria antes de cada prueba
         cita = new Cita();
     }
 
