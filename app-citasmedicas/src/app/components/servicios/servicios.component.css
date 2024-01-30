@@ -1,0 +1,118 @@
+.container_background {
+    padding: -5px;
+    background: #C9D6FF;
+    background: -webkit-linear-gradient(to top, #FFFFCC, #FFFFCC);
+    background: linear-gradient(to top, #FFFFCC, #FFFFCC);  
+}  
+
+.container_main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_main .container_textos h2 {
+    font-size: 1.5em;
+    font-family: "ITC Avant Garde Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: bold;
+    margin-block-start: 0.5em; 
+    margin-block-end: 0.5em; 
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.container_cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container_cards .card {
+    width: 18rem;
+    border-radius: 16px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.container_servicios_stock {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    color: #333;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    color: #666;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.container_servicios_stock .card-text-precio,
+.container_servicios_stock .card-text-cantidad,
+.container_servicios_stock .card-text-estado {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+}
+
+.container_servicios_stock .card-text-precio::before {
+    content: "Precio: ";
+    font-weight: bold;
+}
+
+.container_servicios_stock .card-text-cantidad::before {
+    content: "Cantidad: ";
+    font-weight: bold;
+}
+
+.container_servicios_stock .card-text-estado::before {
+    content: "Estado: ";
+    font-weight: bold;
+}
+
+.container_servicios_stock {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.container_servicios_stock p {
+    margin: 0;
+}
+
+.container_servicios_stock .card-text-precio::before {
+    content: "Precio: ";
+    font-weight: bold;
+}
+
+.container_servicios_stock .card-text-cantidad::before {
+    content: "Cantidad: ";
+    font-weight: bold;
+}
+
+.container_servicios_stock .card-text-estado::before {
+    content: "Estado: ";
+    font-weight: bold;
+}
+
+.card-subtitle {
+    margin-bottom: 0;
+}
+
+.final {
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}

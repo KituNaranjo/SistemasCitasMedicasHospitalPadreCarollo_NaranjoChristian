@@ -1,0 +1,37 @@
+<div class="container_login_main">
+  <div class="container container_registro">
+    <form (ngSubmit)="form_register()">
+      <section class="section_title">
+          <h3 style="display: flex; justify-content: space-between;">Crear Especialidad<a href="#" class="navbar-brand"><img src="assets\logo_hospital.png" width="200px"></a></h3>
+          <br>
+        </section>
+      <div class="form-group">
+        <label class="form-label">Nombre:</label>
+        <input [(ngModel)]="especialidad.especialidad" name="especialidad" class="form-control" type="text">
+      </div>
+      <div class="button-container">
+        <button type="submit" class="btn btn-warning">Registrar Especialidad</button>
+      </div>
+    </form>
+  </div>
+<div class="container table-container">
+  <h4>Listado de Especialidades:</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Especialidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let especialidad of especialidades">
+        <td>{{ especialidad.especialidad_id }}</td>
+        <td>{{ especialidad.especialidad }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="eliminarEspecialidad(especialidad.especialidad_id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>    

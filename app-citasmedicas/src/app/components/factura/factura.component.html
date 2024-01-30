@@ -1,0 +1,69 @@
+<div class="container_login_main">
+    <div class="container container_registro">
+      <form (ngSubmit)="form_register()">
+        <section class="section_title">
+          <h3 style="display: flex; justify-content: space-between;">Crear Factura <a href="#" class="navbar-brand"><img src="assets\logo_hospital.png" width="200px"></a></h3>
+          <br>
+        </section>
+        <div class="form-group">
+          <label class="form-label">Cantidad:</label>
+          <input [(ngModel)]="factura.cantidad" name="cantidad" class="form-control" type="number">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Servicio:</label>
+          <select [(ngModel)]="factura.servicioId" name="servicioId" class="form-select" aria-label="Default select example">
+            <option selected>Seleccione un servicio</option>
+            <option *ngFor="let servicio of servicio" [value]="servicio.servicio_id">{{ servicio.nombreServicio }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Persona:</label>
+          <select [(ngModel)]="factura.personaId" name="personaId" class="form-select" aria-label="Default select example">
+            <option selected>Seleccione una persona</option>
+            <option *ngFor="let persona of personas" [value]="persona.persona_id"> {{ persona.cedula }}</option>
+          </select>
+        </div>
+        <br>
+        <div class="button-container">
+          <button class="btn btn-warning">Crear Factura</button>
+        </div>
+      </form>
+    </div>
+    <div class="container table-container">
+      <h4>Listado de Personas</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Cédula</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of personas">
+            <td>{{ persona.nombre }}</td>
+            <td>{{ persona.apellido }}</td>
+            <td>{{ persona.cedula }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <div class="container table-container">
+      <h4>Listado de Servicios</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let servicio of servicio">
+            <td>{{ servicio.nombreServicio }}</td>
+            <td>{{ servicio.precio }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

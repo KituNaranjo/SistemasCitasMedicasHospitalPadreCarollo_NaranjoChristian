@@ -1,0 +1,43 @@
+<div class="container_medico_main">
+    <div class="container container_registro">
+      <div class="container container_texto">
+        <section class="section_title">
+          <h3 style="display: flex; justify-content: space-between;">Crear cita <a href="#" class="navbar-brand"><img src="assets\logo_hospital.png" width="200px"></a></h3>
+        </section>
+      </div>
+      <br>
+      <form (ngSubmit)="form_register()" #citaForm="ngForm">
+        <div class="form-group">
+            <label class="form-label">Médico:</label>
+            <select name="medico" class="form-select" aria-label="Default select example" [(ngModel)]="medico.persona_id" (ngModelChange)="onMedicoSelected()">
+              <option value="" disabled selected>Seleccione un médico</option>
+              <option *ngFor="let medico of personasMedicos" [value]="medico.persona_id">
+                {{ medico.nombre }} {{ medico.apellido }}
+              </option>
+            </select>
+          </div>
+        <div class="form-group">
+          <label class="form-label">Paciente:</label>
+          <select name="persona" class="form-select" aria-label="Default select example" [(ngModel)]="persona.persona_id" required>
+            <option value="" disabled selected>Seleccione un paciente</option>
+            <option *ngFor="let paciente of personasPacientes" [value]="paciente.persona_id">
+              {{ paciente.nombre }} {{ paciente.apellido }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Fecha de la cita:</label>
+          <input name="fechaCita" class="form-control" type="date" [(ngModel)]="persona.fechaCita" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Hora de la cita:</label>
+          <input name="horaCita" class="form-control" type="time" [(ngModel)]="persona.horaCita" required>
+        </div>
+        <br>
+        <div class="button-container">
+          <button class="btn btn-warning" [disabled]="!citaForm.form.valid">Crear cita</button>
+        </div>
+      </form>
+      <br>
+    </div>
+  </div>

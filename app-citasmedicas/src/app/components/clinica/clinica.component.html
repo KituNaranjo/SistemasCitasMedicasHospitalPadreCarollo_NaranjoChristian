@@ -1,0 +1,73 @@
+<div class="container_login_main">
+    <div class="container container_registro">
+      <form (ngSubmit)="form_register()">
+        <section class="section_title">
+          <h3 style="display: flex; justify-content: space-between;">Registrar Historia Clinica <a href="#" class="navbar-brand"><img src="assets\logo_hospital.png" width="200px"></a></h3>
+          <br>
+          <div class="form-group">
+            <label class="form-label">Paciente:</label>
+            <select [(ngModel)]="clinica.persona_id" name="persona_id" class="form-select" aria-label="Default select example">
+              <option selected>Seleccione un Paciente</option>
+              <option *ngFor="let persona of personas" [value]="persona.persona_id">{{ persona.nombre }}</option>
+            </select>
+          </div>
+            <div class="form-group">
+                <label class="form-label">Médico:</label>
+                <select [(ngModel)]="clinica.medico_id" name="medico_id" class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un Médico</option>
+                <option *ngFor="let medico of medicos" [value]="medico.medico_id">{{ medico.medico_id }}</option>
+                </select>
+            </div>
+        </section>
+            <div class="form-group">
+                <label class="form-label">Prescripción:</label>
+                <input name="prescripciones" class="form-control" type="text" [(ngModel)]="clinica.prescripciones">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Ordenes:</label>
+                <input name="ordenes" class="form-control" type="text" [(ngModel)]="clinica.ordenes">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Certificado:</label>
+                <input name="certificados" class="form-control" type="text" [(ngModel)]="clinica.certificados">
+            </div>
+            <br>
+            <div class="button-container">
+                <button class="btn btn-pwarning">Agregar</button>
+              </div>
+        </form>
+        </div>
+<div class="container table-container">
+    <h4>Listado de Médicos</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Especialidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let medico of medicos">
+          <td>{{ medico.medico_id }}</td>
+          <td>{{ medico.especialidad.especialidad }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+          <div class="container table-container">
+            <h4>Listado de Pacientes</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cliente of personas">
+                  <td>{{ cliente.nombre }}</td>
+                  <td>{{ cliente.apellido }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>

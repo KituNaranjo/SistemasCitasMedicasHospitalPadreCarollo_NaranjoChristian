@@ -1,0 +1,29 @@
+<div class="container_login_main">
+    <div class="container container_registro">
+      <section class="section_title">
+        <h3 style="display: flex; justify-content: space-between;">Login <a href="#"  class="navbar-brand"><img src="assets\logo_hospital.png" width="200px"></a> </h3>
+        <br>
+      </section>
+      <br>
+      <form  (ngSubmit) = "form_login()">
+        <div class="form-group">
+          <label class="form-label">Usuario</label>
+          <input class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Contraseña</label>
+          <input class="form-control" type="password">
+        </div>
+        <br>
+        <div class="button-container">
+          <button class="btn btn-warning">Iniciar Sesión</button>
+        </div>
+      </form>
+      <br>
+      <div class="container_seccion_registrarse">
+        <p>Si no tienes una cuenta por favor <a href="registrarse"> Registrate </a> </p>
+      </div>
+      <br>
+    </div>
+  </div>
+  

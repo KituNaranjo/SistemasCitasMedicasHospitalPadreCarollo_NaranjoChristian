@@ -1,0 +1,70 @@
+<div class="container_background">
+    <div class="container container_main">
+        <div class="container_textos">
+            <h2>Ponemos a disposición de la ciudadanía los siguientes servicios:</h2>
+        </div>
+        <br><br><br>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <img src="assets/ambulancia.png" class="card-img-top" alt="Servicio 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Ambulatorio</h5>
+                        <p class="card-text">Consulta externa, Rehabilitación y Odontología, en dos instalaciones, Hospital Padre Carollo “Un Canto a la Vida” (sector Quitumbe) y Centro Médico Tierra Nueva (sector Quito Sur).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="assets/cama.png" class="card-img-top" alt="Servicio 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Internación</h5>
+                        <p class="card-text">Hospitalización, Cuidados Intensivos, Centro Quirúrgico, Centro Obstétrico, Neonatología y Materno Infantil.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="assets/estetoscopio.png" class="card-img-top" alt="Servicio 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Diagnóstico</h5>
+                        <p class="card-text">Imagen, Laboratorio Clínico e Histopatológico.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="assets/sirena.png" class="card-img-top" alt="Servicio 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Emergencia, farmacia y ambulancia las 24 horas</h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <div class="ubicacion-info">
+                    <h5 class="final">Nos encontramos ubicados:</h5>
+                    <h5 class="final">Av. Rumichaca S33-10 y Matilde Álvarez (frente al parque Las Cuadras)</h5>
+                    <a href="https://maps.app.goo.gl/7C7v9ho46PBuMkMd8" class="btn btn-secondary">Ver ubicación</a>
+                </div>
+                <br><br><br>            
+                <h2 class="final">Todos los derechos reservados Christian Naranjo © 2023 Sistema Citas Médicas</h2>
+            </div>
+            <div class="row row-cols-4 row-cols-md-4 g-4">
+                <div class="col container_cards" *ngFor="let servicio of servicios">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{servicio.nombreServicio}}</h5>
+                            <br>
+                            <div class="container_servicios_stock">
+                                <p class="card-text-precio"> {{servicio.precio}}</p>
+                                <p class="card-text-cantidad"> {{servicio.cantidad}}</p>
+                                <p class="card-text-estado"> {{servicio.estado}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

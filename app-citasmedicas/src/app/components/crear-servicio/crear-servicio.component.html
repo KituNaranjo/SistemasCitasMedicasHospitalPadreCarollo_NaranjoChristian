@@ -1,0 +1,41 @@
+<div class="container_login_main">
+    <div class="container container_registro">
+      <section class="section_title">
+        <h3 style="display: flex; justify-content: space-between;">Crear Servicio <a href="#"  class="navbar-brand"><img src="assets\logo_hospital.png" width="200px"></a> </h3>
+        <br>
+      </section>
+      <br>
+      <form  (ngSubmit) = "form_register()">
+        <div class="form-group">
+          <label class="form-label">Nombre del servicio:</label>
+          <input  [(ngModel)]="servicio.nombreServicio" name="nombreServicio" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Precio:</label>
+          <input  [(ngModel)]="servicio.precio" name="precio" class="form-control" type="number">
+        </div>
+        <div class="form-group">
+            <label class="form-label">IVA:</label>
+            <input [(ngModel)]="servicio.iva" name="iva" class="form-control" type="number">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Cantidad:</label>
+            <input [(ngModel)]="servicio.cantidad" name="cantidad" class="form-control" type="number">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Estado:</label>
+            <select [(ngModel)]="servicio.estado" name="estado" class="form-select" aria-label="Default select example">
+                <option selected>Seleccione una opción</option>
+                <option value="1">Activo</option>
+                <option value="2">Inactivo</option>
+            </select>
+        </div>
+        <br>
+        <div class="button-container">
+          <button class="btn btn-warning">Crear Servicio</button>
+        </div>
+      </form>
+      <br>
+    </div>
+  </div>
+  
